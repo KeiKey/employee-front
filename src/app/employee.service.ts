@@ -8,10 +8,11 @@ import {Employee} from './employee';
 })
 export class EmployeeService {
 
-    private apiServerUrl = 'http://localhost:8080/api/v1/employee/';
+    private apiServerUrl = 'http://localhost:8080/api/v1/employee';
 
     constructor(private http: HttpClient) {    }
 
+  // tslint:disable-next-line:ban-types
     public getEmployee(employeeId: Number): Observable<Employee> {
         return this.http.get<Employee>(`${this.apiServerUrl}/${employeeId}`);
     }
@@ -28,6 +29,7 @@ export class EmployeeService {
         return this.http.put<Employee>(`${this.apiServerUrl}/update`, employee);
     }
 
+  // tslint:disable-next-line:ban-types
     public deleteEmployee(employeeId: Number): Observable<void> {
         return this.http.delete<void>(`${this.apiServerUrl}/delete/${employeeId}`);
     }
