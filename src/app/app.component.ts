@@ -49,27 +49,27 @@ export class AppComponent implements OnInit {
     }
 
     public onUpdateEmployee(employee: Employee): void {
-      this.employeeService.updateEmployee(employee).subscribe(
-        (response: Employee) => {
-            console.log(response);
-            this.getEmployees();
-        },
-        (error: HttpErrorResponse) => {
-            alert(error.message);
-        }
-      );
+        this.employeeService.updateEmployee(employee).subscribe(
+            (response: Employee) => {
+                console.log(response);
+                this.getEmployees();
+            },
+            (error: HttpErrorResponse) => {
+                alert(error.message);
+            }
+        );
     }
 
     public onDeleteEmployee(employeeId: number): void {
-      this.employeeService.deleteEmployee(employeeId).subscribe(
-        (response: void) => {
-            console.log(response);
-            this.getEmployees();
-        },
-        (error: HttpErrorResponse) => {
-            alert(error.message);
-        }
-      );
+        this.employeeService.deleteEmployee(employeeId).subscribe(
+            (response: void) => {
+                console.log(response);
+                this.getEmployees();
+            },
+            (error: HttpErrorResponse) => {
+                alert(error.message);
+            }
+        );
     }
 
     public searchEmployees(key: string): void {
@@ -109,9 +109,5 @@ export class AppComponent implements OnInit {
         container.appendChild(button);
         button.click();
     }
-
-
-
-
 
 }
