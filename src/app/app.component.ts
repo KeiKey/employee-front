@@ -17,7 +17,6 @@ export class AppComponent implements OnInit {
 
     constructor(private employeeService: EmployeeService) {    }
 
-  // tslint:disable-next-line:typedef
     ngOnInit() {
         this.getEmployees();
     }
@@ -35,6 +34,10 @@ export class AppComponent implements OnInit {
 
     public onAddEmployee(addForm: NgForm): void {
         document.getElementById('add-employee-form').click();
+      /**
+       * TODO:
+       * Find a better way to handle errors
+       */
         this.employeeService.addEmployee(addForm.value).subscribe(
             (response: Employee) => {
                 console.log(response);
@@ -73,8 +76,11 @@ export class AppComponent implements OnInit {
     }
 
     public searchEmployees(key: string): void {
-        console.log(key);
         const results: Employee[] = [];
+      /**
+       * TODO:
+       * Find how to handle search on backend
+       */
         for (const employee of this.employees) {
             if (employee.name.toLowerCase().indexOf(key.toLowerCase()) !== -1
             || employee.email.toLowerCase().indexOf(key.toLowerCase()) !== -1
@@ -109,5 +115,10 @@ export class AppComponent implements OnInit {
         container.appendChild(button);
         button.click();
     }
+
+    /**
+     * TODO:
+     * Work on pagination for angular and spring
+     */
 
 }
